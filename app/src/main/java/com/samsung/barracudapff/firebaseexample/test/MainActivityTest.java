@@ -35,6 +35,7 @@ public class MainActivityTest extends AppCompatActivity {
             public void onClick(View v) {
                 DatabaseReference numberRef = FirebaseDatabase.getInstance().getReference()
                         .child("app");
+
                 numberRef.child("version")
                         .addValueEventListener(new ValueEventListener() {
                             @Override

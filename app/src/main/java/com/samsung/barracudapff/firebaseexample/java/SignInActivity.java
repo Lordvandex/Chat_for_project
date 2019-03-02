@@ -71,7 +71,18 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         String email = mEmailField.getText().toString();
         String password = mPasswordField.getText().toString();
 
-        // TODO: 02.03.2019  
+        mAuth.signInWithEmailAndPassword(email,password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        hideProgressDialog();
+                        if (task.isSuccessful()) {
+                            onAuthSuccess(task.getResult().getUser());
+                        } else {
+                            task.getException().printStackTrace();
+                        }
+                    }
+                });
     }
 
     private void signUp() {
@@ -84,7 +95,18 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         String email = mEmailField.getText().toString();
         String password = mPasswordField.getText().toString();
 
-        // TODO: 02.03.2019  
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        hideProgressDialog();
+                        if (task.isSuccessful()) {
+                            onAuthSuccess(task.getResult().getUser());
+                        } else {
+                            task.getException().printStackTrace();
+                        }
+                    }
+                });
     }
 
     private void onAuthSuccess(FirebaseUser user) {
@@ -127,7 +149,12 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
 
     // [START basic_write]
     private void writeNewUser(String userId, String name, String email) {
-        // TODO: 02.03.2019  
+        User user = new User(name, email);
+
+        FirebaseDatabase.getInstance().getReference()
+                .child("users")
+                .child(userId)
+                .setValue(user);
     }
     // [END basic_write]
 

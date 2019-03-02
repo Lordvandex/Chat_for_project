@@ -61,27 +61,40 @@ public class NewPostActivity extends BaseActivity {
         Toast.makeText(this, "Posting...", Toast.LENGTH_SHORT).show();
 
         final String userId = getUid();
-        mDatabase.child("users").child(userId).addListenerForSingleValueEvent(
-                new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        // TODO: 02.03.2019
-                    }
+        FirebaseDatabase.getInstance().getReference()
+                .child("users")
+                .child(userId)
+                .addListenerForSingleValueEvent(
+                        new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                User user = dataSnapshot.getValue(User.class);
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.w(TAG, "getUser:onCancelled", databaseError.toException());
-                        setEditingEnabled(true);
-                    }
-                });
+                                writeNewPost(userId, user.name, title, body);
+                                setEditingEnabled(false);
+                                finish();
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                                Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+                                setEditingEnabled(true);
+                            }
+                        });
         // [END single_value_read]
     }
 
     private void setEditingEnabled(boolean enabled) {
-        // TODO: 02.03.2019
+        mTitleField.setEnabled(enabled);
+        mBodyField.setEnabled(enabled);
     }
 
     private void writeNewPost(String userId, String username, String title, String body) {
-        // TODO: 02.03.2019
+        String key = mDatabase.child("posts")
+                .push().getKey();
+        Post post = new Post(userId,username,title,body);
+        FirebaseDatabase.getInstance().getReference()
+                .child("posts")
+                .child(key).updateChildren(post.toMap());
     }
 }
