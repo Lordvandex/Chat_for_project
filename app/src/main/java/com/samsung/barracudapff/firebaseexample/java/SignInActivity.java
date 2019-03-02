@@ -71,21 +71,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         String email = mEmailField.getText().toString();
         String password = mPasswordField.getText().toString();
 
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "signIn:onComplete:" + task.isSuccessful());
-                        hideProgressDialog();
-
-                        if (task.isSuccessful()) {
-                            onAuthSuccess(task.getResult().getUser());
-                        } else {
-                            Toast.makeText(SignInActivity.this, "Sign In Failed",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+        // TODO: 02.03.2019  
     }
 
     private void signUp() {
@@ -98,22 +84,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         String email = mEmailField.getText().toString();
         String password = mPasswordField.getText().toString();
 
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "createUser:onComplete:" + task.isSuccessful());
-                        hideProgressDialog();
-
-                        if (task.isSuccessful()) {
-                            onAuthSuccess(task.getResult().getUser());
-                        } else {
-                            Toast.makeText(SignInActivity.this, "Sign Up Failed",
-                                    Toast.LENGTH_SHORT).show();
-                            task.getException().printStackTrace();
-                        }
-                    }
-                });
+        // TODO: 02.03.2019  
     }
 
     private void onAuthSuccess(FirebaseUser user) {
@@ -156,9 +127,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
 
     // [START basic_write]
     private void writeNewUser(String userId, String name, String email) {
-        User user = new User(name, email);
-
-        mDatabase.child("users").child(userId).setValue(user);
+        // TODO: 02.03.2019  
     }
     // [END basic_write]
 

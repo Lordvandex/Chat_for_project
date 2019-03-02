@@ -47,29 +47,28 @@ public class MainActivity extends BaseActivity {
         // Create the adapter that will return a fragment for each section
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[]{
-                    new RecentPostsFragment(),
-                    new MyPostsFragment(),
-                    new MyTopPostsFragment(),
+                    // TODO: 02.03.2019  ,
             };
             private final String[] mFragmentNames = new String[]{
-                    getString(R.string.heading_recent),
-                    getString(R.string.heading_my_posts),
-                    getString(R.string.heading_my_top_posts)
+                    // TODO: 02.03.2019  
             };
 
             @Override
             public Fragment getItem(int position) {
-                return mFragments[position];
+                // TODO: 02.03.2019  
+                return null;
             }
 
             @Override
             public int getCount() {
-                return mFragments.length;
+                // TODO: 02.03.2019  
+                return 0;
             }
 
             @Override
             public CharSequence getPageTitle(int position) {
-                return mFragmentNames[position];
+                // TODO: 02.03.2019  
+                return null;
             }
         };
         // Set up the ViewPager with the sections adapter.
@@ -97,9 +96,7 @@ public class MainActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
         if (i == R.id.action_logout) {
-            FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(this, SignInActivity.class));
-            finish();
+            // TODO: 02.03.2019  
             return true;
         } else {
             return super.onOptionsItemSelected(item);

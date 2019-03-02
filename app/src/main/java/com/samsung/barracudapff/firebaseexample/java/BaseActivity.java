@@ -27,7 +27,8 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public String getUid() {
-        return FirebaseAuth.getInstance().getCurrentUser().getUid();
+        // TODO: 02.03.2019
+        return null;
     }
 
 

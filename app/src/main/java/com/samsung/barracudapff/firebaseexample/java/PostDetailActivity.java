@@ -85,27 +85,15 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get Post object and use the values to update the UI
-                Post post = dataSnapshot.getValue(Post.class);
-                // [START_EXCLUDE]
-                mAuthorView.setText(post.author);
-                mTitleView.setText(post.title);
-                mBodyView.setText(post.body);
-                // [END_EXCLUDE]
+                // TODO: 02.03.2019  
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
-                // [START_EXCLUDE]
-                Toast.makeText(PostDetailActivity.this, "Failed to load post.",
-                        Toast.LENGTH_SHORT).show();
-                // [END_EXCLUDE]
+                // TODO: 02.03.2019  
             }
         };
         mPostReference.addValueEventListener(postListener);
-        // [END post_value_event_listener]
 
         // Keep copy of post listener so we can remove it when app stops
         mPostListener = postListener;
@@ -142,19 +130,7 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        // Get user information
-                        User user = dataSnapshot.getValue(User.class);
-                        String authorName = user.username;
-
-                        // Create new comment object
-                        String commentText = mCommentField.getText().toString();
-                        Comment comment = new Comment(uid, authorName, commentText);
-
-                        // Push the comment, it will appear in the list
-                        mCommentsReference.push().setValue(comment);
-
-                        // Clear the field
-                        mCommentField.setText(null);
+                        // TODO: 02.03.2019  
                     }
 
                     @Override
@@ -197,73 +173,28 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
                 public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
                     Log.d(TAG, "onChildAdded:" + dataSnapshot.getKey());
 
-                    // A new comment has been added, add it to the displayed list
-                    Comment comment = dataSnapshot.getValue(Comment.class);
-
-                    // [START_EXCLUDE]
-                    // Update RecyclerView
-                    mCommentIds.add(dataSnapshot.getKey());
-                    mComments.add(comment);
-                    notifyItemInserted(mComments.size() - 1);
-                    // [END_EXCLUDE]
+                    // TODO: 02.03.2019  
                 }
 
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
                     Log.d(TAG, "onChildChanged:" + dataSnapshot.getKey());
 
-                    // A comment has changed, use the key to determine if we are displaying this
-                    // comment and if so displayed the changed comment.
-                    Comment newComment = dataSnapshot.getValue(Comment.class);
-                    String commentKey = dataSnapshot.getKey();
-
-                    // [START_EXCLUDE]
-                    int commentIndex = mCommentIds.indexOf(commentKey);
-                    if (commentIndex > -1) {
-                        // Replace with the new data
-                        mComments.set(commentIndex, newComment);
-
-                        // Update the RecyclerView
-                        notifyItemChanged(commentIndex);
-                    } else {
-                        Log.w(TAG, "onChildChanged:unknown_child:" + commentKey);
-                    }
-                    // [END_EXCLUDE]
+                    // TODO: 02.03.2019  
                 }
 
                 @Override
                 public void onChildRemoved(DataSnapshot dataSnapshot) {
                     Log.d(TAG, "onChildRemoved:" + dataSnapshot.getKey());
 
-                    // A comment has changed, use the key to determine if we are displaying this
-                    // comment and if so remove it.
-                    String commentKey = dataSnapshot.getKey();
-
-                    // [START_EXCLUDE]
-                    int commentIndex = mCommentIds.indexOf(commentKey);
-                    if (commentIndex > -1) {
-                        // Remove data from the list
-                        mCommentIds.remove(commentIndex);
-                        mComments.remove(commentIndex);
-
-                        // Update the RecyclerView
-                        notifyItemRemoved(commentIndex);
-                    } else {
-                        Log.w(TAG, "onChildRemoved:unknown_child:" + commentKey);
-                    }
-                    // [END_EXCLUDE]
+                    // TODO: 02.03.2019  
                 }
 
                 @Override
                 public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
                     Log.d(TAG, "onChildMoved:" + dataSnapshot.getKey());
 
-                    // A comment has changed position, use the key to determine if we are
-                    // displaying this comment and if so move it.
-                    Comment movedComment = dataSnapshot.getValue(Comment.class);
-                    String commentKey = dataSnapshot.getKey();
-
-                    // ...
+                    // TODO: 02.03.2019  
                 }
 
                 @Override
@@ -283,15 +214,14 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
         @Override
         public CommentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(mContext);
-            View view = inflater.inflate(R.layout.item_comment, parent, false);
+            // TODO: 02.03.2019  
+            View view = inflater.inflate(null, parent, false);
             return new CommentViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(CommentViewHolder holder, int position) {
-            Comment comment = mComments.get(position);
-            holder.authorView.setText(comment.author);
-            holder.bodyView.setText(comment.text);
+            // TODO: 02.03.2019  
         }
 
         @Override
