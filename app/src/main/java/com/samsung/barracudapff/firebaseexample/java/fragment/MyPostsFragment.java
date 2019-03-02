@@ -9,7 +9,8 @@ public class MyPostsFragment extends PostListFragment {
 
     @Override
     public Query getQuery(DatabaseReference databaseReference) {
-        // TODO: 02.03.2019
-        return null;
+        return databaseReference
+                .child("user-posts")
+                .child(getUid());
     }
 }

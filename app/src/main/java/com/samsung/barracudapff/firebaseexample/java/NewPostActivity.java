@@ -96,5 +96,9 @@ public class NewPostActivity extends BaseActivity {
         FirebaseDatabase.getInstance().getReference()
                 .child("posts")
                 .child(key).updateChildren(post.toMap());
+        FirebaseDatabase.getInstance().getReference()
+                .child("user-posts")
+                .child(getUid())
+                .child(key).updateChildren(post.toMap());
     }
 }

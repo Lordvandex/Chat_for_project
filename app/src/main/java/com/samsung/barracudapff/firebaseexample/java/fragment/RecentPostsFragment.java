@@ -9,8 +9,8 @@ public class RecentPostsFragment extends PostListFragment {
 
     @Override
     public Query getQuery(DatabaseReference databaseReference) {
-        // TODO: 02.03.2019  
-
-        return null;
+        return databaseReference
+                .child("posts")
+                .limitToFirst(100);
     }
 }

@@ -71,13 +71,18 @@ public abstract class PostListFragment extends Fragment {
             @Override
             public PostViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
                 LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-                // TODO: 02.03.2019
-                return new PostViewHolder(inflater.inflate(null, viewGroup, false));
+                return new PostViewHolder(inflater.inflate(R.layout.item_post, viewGroup, false));
             }
 
             @Override
-            protected void onBindViewHolder(PostViewHolder viewHolder, int position, final Post model) {
-                // TODO: 02.03.2019
+            protected void onBindViewHolder(PostViewHolder viewHolder, int position, final Post post) {
+                View.OnClickListener listener  =new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                };
+                viewHolder.bindToPost(post, listener);
             }
         };
         mRecycler.setAdapter(mAdapter);
@@ -87,7 +92,6 @@ public abstract class PostListFragment extends Fragment {
         postRef.runTransaction(new Transaction.Handler() {
             @Override
             public Transaction.Result doTransaction(MutableData mutableData) {
-                // TODO: 02.03.2019
                 return Transaction.success(mutableData);
             }
 
@@ -118,10 +122,8 @@ public abstract class PostListFragment extends Fragment {
     }
 
     public String getUid() {
-        // TODO: 02.03.2019
-        return null;
+        return FirebaseAuth.getInstance().getCurrentUser().getUid();
     }
 
     public abstract Query getQuery(DatabaseReference databaseReference);
-
 }

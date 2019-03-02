@@ -27,6 +27,11 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bindToPost(Post post, View.OnClickListener starClickListener) {
-        // TODO: 02.03.2019
+        titleView.setText(post.title);
+        authorView.setText(post.author);
+        numStarsView.setText(String.valueOf(post.starCount));
+        bodyView.setText(post.body);
+
+        starView.setOnClickListener(starClickListener);
     }
 }
