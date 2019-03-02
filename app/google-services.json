@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "14203208179",
+    "firebase_url": "https://fir-test-fe155.firebaseio.com",
+    "project_id": "fir-test-fe155",
+    "storage_bucket": "fir-test-fe155.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14203208179:android:e9d619223202b577",
+        "android_client_info": {
+          "package_name": "com.samsung.barracudapff.firebaseexample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "14203208179-83h2ki0ep2b6cf8n3igphkqjqkvgm8hr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAge-9EDG9S3Och0JVsy07gq0qEHkiH6ew"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
