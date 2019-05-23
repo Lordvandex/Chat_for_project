@@ -1,39 +1,37 @@
 {
   "project_info": {
-    "project_number": "14203208179",
-    "firebase_url": "https://fir-test-fe155.firebaseio.com",
-    "project_id": "fir-test-fe155",
-    "storage_bucket": "fir-test-fe155.appspot.com"
+    "project_number": "766219005044",
+    "firebase_url": "https://fir-example-bbcdd.firebaseio.com",
+    "project_id": "fir-example-bbcdd",
+    "storage_bucket": "fir-example-bbcdd.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:14203208179:android:e9d619223202b577",
+        "mobilesdk_app_id": "1:766219005044:android:e9d619223202b577",
         "android_client_info": {
           "package_name": "com.samsung.barracudapff.firebaseexample"
         }
       },
       "oauth_client": [
         {
-          "client_id": "14203208179-83h2ki0ep2b6cf8n3igphkqjqkvgm8hr.apps.googleusercontent.com",
+          "client_id": "766219005044-924m0o886a5ml5kb52p958euov1av38u.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAge-9EDG9S3Och0JVsy07gq0qEHkiH6ew"
+          "current_key": "AIzaSyCtt0n79lHIpylJBrvXC-cCbht_JD_dgTc"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766219005044-924m0o886a5ml5kb52p958euov1av38u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
